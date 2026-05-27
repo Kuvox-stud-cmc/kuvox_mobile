@@ -1,56 +1,63 @@
-# Welcome to your Expo app 👋
+# kuvox-mobile
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+The mobile client of **Kuvox** — a graph-augmented retrieval system for intelligent
+video editing. This is a React Native application built with Expo that provides a
+mobile-optimized interface for video browsing, project management, and
+conversational editing commands. It communicates with the ASP.NET business backend
+via REST and WebSocket.
 
-## Get started
+## Tech stack
 
-1. Install dependencies
+- **React Native** via **Expo** (managed workflow)
+- **Expo Router** (file-based routing)
+- **TypeScript** (strict mode)
+- **Expo AV** for media playback
 
-   ```bash
-   npm install
-   ```
+## Prerequisites
 
-2. Start the app
+- Node.js **20+** (LTS recommended)
+- npm (ships with Node)
+- Expo CLI (`npx expo`)
+- For device testing: Expo Go app on iOS/Android, or a development build
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Getting started
 
 ```bash
-npm run reset-project
+# Install dependencies
+npm install
+
+# Start the Expo dev server
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+From the dev server output you can open the app in:
 
-### Other setup steps
+- A [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- An [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- An [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go) (limited sandbox)
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## Project structure
 
-## Learn more
+```
+src/            # Application source code
+app/            # Expo Router file-based routes
+assets/         # Static assets (images, fonts)
+scripts/        # Utility scripts
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Environment variables
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Configuration is loaded via `app.json` extras or a `.env` file with
+`expo-constants`.
 
-## Join the community
+| Variable  | Description                         | Default                  |
+| --------- | ----------------------------------- | ------------------------ |
+| `API_URL` | Base URL of the ASP.NET backend     | `http://localhost:5000`  |
+| `WS_URL`  | WebSocket URL for real-time updates | `ws://localhost:5000/ws` |
 
-Join our community of developers creating universal apps.
+## Related repositories
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- **[kuvox-frontend](../frontend)** — React web frontend
+- **[kuvox-api](../api)** — ASP.NET business backend
+- **[kuvox-ai](../ai-service)** — Python AI / media service
